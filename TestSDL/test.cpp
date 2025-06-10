@@ -84,8 +84,8 @@ int main(int argc, char *argv[])
     statut = EXIT_SUCCESS;
     SDL_Delay(3000);
     SDL_Event event;
-SDL_bool continuer=SDL_TRUE;
-int count=0;
+    SDL_bool continuer=SDL_TRUE;
+    int count=0;
 // while(continuer)
 // {
 //     SDL_WaitEvent(&event);

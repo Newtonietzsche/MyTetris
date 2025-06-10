@@ -18,7 +18,7 @@ class game
         // classe queue
     
     public:
-    game();
+    // game();
     bool newgame();
     void playgame();
     void rebootgame();

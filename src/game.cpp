@@ -4,13 +4,14 @@
 
 
 
+
 void game::playgame()
 {
     bool endgame=false;
     int numcol=0;
-    //Plat->afficherplateau();
     
-    /**/
+    
+    
     if (newgame())
     {
     rebootgame();
