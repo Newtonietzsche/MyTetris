@@ -1,0 +1,1 @@
+/usr/bin/c++ -g $(sdl2-config --cflags --libs) -Wall -Wextra -Wpedantic CMakeFiles/monExe.dir/src/couleur.cpp.o CMakeFiles/monExe.dir/src/fenetre.cpp.o CMakeFiles/monExe.dir/src/game.cpp.o CMakeFiles/monExe.dir/src/main.cpp.o CMakeFiles/monExe.dir/src/queue.cpp.o -o ../bin/monExe 

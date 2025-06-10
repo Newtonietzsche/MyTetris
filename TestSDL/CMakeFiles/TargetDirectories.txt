@@ -1,0 +1,3 @@
+/home/baptiste/Documents/Projets_perso/Tetris/TestSDL/CMakeFiles/monExe.dir
+/home/baptiste/Documents/Projets_perso/Tetris/TestSDL/CMakeFiles/edit_cache.dir
+/home/baptiste/Documents/Projets_perso/Tetris/TestSDL/CMakeFiles/rebuild_cache.dir
