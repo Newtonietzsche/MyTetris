@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
+#include <cube.h>
 
 
 #define GAME_WINDOW_SIZE 30 //squareSize en fait
@@ -29,12 +30,16 @@ class Fenetre
         SDL_Color noir = {0, 0, 0,0};
 
         pthread_t threadFenetre;
+        
+        Cube **plateau;
 
-    
     public:
         int Start();
         int SetRenderColor(SDL_Renderer &renderer,SDL_Color &color);
         int PrintColor();
+        int PrintPlateau();
+        void RefreshWindow();
+
         
 
 };

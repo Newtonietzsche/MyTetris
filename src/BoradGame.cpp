@@ -1,9 +1,9 @@
-#pragma once
-#include <iostream>
 
-class couleur
+#include <iostream>
+#include <BoradGame.h>
+
+
+void BoardGame::Init()
 {
-    public:
-    
-    static void afficherjetonjoueur(int valeurtableau); //cette fonction renvoi la valeur du tableau en couleur, si le tableau est en blanc
-};
+
+}

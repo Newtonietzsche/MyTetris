@@ -5,6 +5,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "fenetre.h"
+#include "BoradGame.h"
+#include "controlManager.h"
+#include "controlQueue.h"
 
 
 
@@ -13,12 +16,19 @@
 class game
 {
     private:
-        //classe avec thread iamge.
+        Fenetre fenetre;
+        ControlManager controlManager;
+        TaskQueue tasqkqueue;
+        BoardGame borad;
+        
+        //classe avec thread pour fenêtre
         //classe avec thread commandes
-        // classe queue
+        //classe gestion du plateau
+        //classe queue
+        //classe
     
     public:
-    // game();
+    game();
     bool newgame();
     void playgame();
     void rebootgame();

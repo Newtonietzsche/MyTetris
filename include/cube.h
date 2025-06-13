@@ -1,20 +1,23 @@
 #pragma once
 #include <iostream>
 #include <controlQueue.h>
-#include <cube.h>
-class BoardGame
+#include "couleur.h"
+#include <SDL2/SDL.h>
+class Cube
 {
     
     private:
-        pthread_t threadFenetre;
-        TaskQueue * taskQueue; 
+        int id;
+        SDL_Color couleur;
+        int position[2];
+        int pixelPosition;
+
         //mon tableau de je ne sais quelle variable
-        Cube **plateau;
 
     public:
-        void Init();
+        
 
-
+   
 };
 
 

@@ -3,15 +3,15 @@
 #include <string.h>
 
 
-
-
+game::game()
+{
+    
+}
 void game::playgame()
 {
     bool endgame=false;
     int numcol=0;
-    
-    
-    
+        
     if (newgame())
     {
     rebootgame();
@@ -22,7 +22,6 @@ void game::playgame()
     }
     
 }
-
 
 
 bool game::newgame()

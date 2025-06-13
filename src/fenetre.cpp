@@ -23,9 +23,30 @@ if(NULL == renderer)
 }
 }
 
+int Fenetre::SetRenderColor(SDL_Renderer &renderer,SDL_Color &color)
+{
+    if(0 != SDL_SetRenderDrawColor(&renderer, color.r, color.g, color.b, color.a))
+{
+    fprintf(stderr, "Erreur SDL_SetRenderDrawColor : %s", SDL_GetError());
+   return(-1);
+}
+return 0 ;
+}
 
+int Fenetre::PrintPlateau()
+{
+    //on parcours tout le tableau 
+    // on prend la couleur de l'élément 
+    // on dessine un carré à l'endroit prévu
+}
 
-
+void Fenetre::RefreshWindow()
+{
+    while(this->plateau != nullptr)
+    {
+        PrintPlateau();
+    }
+}
 
 
 

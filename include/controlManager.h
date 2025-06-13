@@ -6,13 +6,13 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include "controlQueue.h"
-
+#include <thread>
 
 class ControlManager
 {
     private:
         int tailleFenetre;
-        pthread_t threadController;
+        std::thread threadController;
         SDL_Event event;
         SDL_bool continuer=SDL_TRUE;
 
@@ -26,6 +26,7 @@ class ControlManager
         ControlManager(TaskQueue  *taskQueue );
         int start();
         int getControl();    
+        // static void* GetControlWrapper(void* object);
 
 };
 

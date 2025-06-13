@@ -1,4 +1,3 @@
-#pragma once
 
 #include <pthread.h>
 #include <iostream>
@@ -8,8 +7,14 @@
 #include <controlManager.h>
 
 
+ControlManager::ControlManager()
+{
+    
+    threadController  = std::thread(&ControlManager::getControl, this);
+}
 int ControlManager::start()
 {
+
     return 0;
 }
 int ControlManager::getControl()
@@ -25,6 +30,7 @@ int ControlManager::getControl()
         if(event.type == SDL_KEYDOWN)
         {
             taskQueue->Push(event);
+            printf("scancode TEST\n");
         }
             
             
@@ -32,7 +38,11 @@ int ControlManager::getControl()
     
     return 0;
 }    
-
+// static void* ControlManager::GetControlWrapper(void* object)
+//     {
+//         reinterpret_cast<ControlManager*>(object)->getControl();
+//         return 0;
+//     }
 
 
 // if(event.key.keysym.scancode == SDL_SCANCODE_A)
