@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
+#include <thread>
 #include <cube.h>
 
 
@@ -19,6 +20,7 @@ class Fenetre
         SDL_Window *window = NULL;
         SDL_Renderer *renderer = NULL;
         int statut = EXIT_FAILURE;
+        const char* title = "Tetris";
 
         int squareSize = 30;
         int squareWidthSize = 33;
@@ -29,16 +31,18 @@ class Fenetre
         SDL_Color bleu = {0, 0, 255, 255};
         SDL_Color noir = {0, 0, 0,0};
 
-        pthread_t threadFenetre;
+        std::thread threadFenetre;
         
         Cube **plateau;
 
     public:
+        Fenetre();
         int Start();
         int SetRenderColor(SDL_Renderer &renderer,SDL_Color &color);
         int PrintColor();
         int PrintPlateau();
         void RefreshWindow();
+        int CloseWindow();
 
         
 

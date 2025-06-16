@@ -19,12 +19,12 @@ class ControlManager
         SDL_Scancode scancode;
         SDL_Keycode sym;
         Uint16 mod;        
-        TaskQueue * taskQueue;        
+        TaskQueue *taskQueue ;        
         int ** tableauTot;
     public:
-        ControlManager();
-        ControlManager(TaskQueue  *taskQueue );
-        int start();
+        //ControlManager();
+        // ControlManager(TaskQueue  &taskQueueInit );
+        int start(TaskQueue  *taskQueueInit);
         int getControl();    
         // static void* GetControlWrapper(void* object);
 

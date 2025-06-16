@@ -8,27 +8,26 @@
 #include "BoradGame.h"
 #include "controlManager.h"
 #include "controlQueue.h"
+#include <cube.h>
 
 
-
-
+#define TAILLE_LARGEUR 10
+#define TAILLE_HAUTEUR 20
 
 class game
 {
     private:
+        TaskQueue gameTaskQueue;
+        BoardGame board;
         Fenetre fenetre;
         ControlManager controlManager;
-        TaskQueue tasqkqueue;
-        BoardGame borad;
+
+        Cube plateau[TAILLE_LARGEUR][TAILLE_HAUTEUR];
         
-        //classe avec thread pour fenêtre
-        //classe avec thread commandes
-        //classe gestion du plateau
-        //classe queue
-        //classe
-    
+
     public:
     game();
+    int start();
     bool newgame();
     void playgame();
     void rebootgame();

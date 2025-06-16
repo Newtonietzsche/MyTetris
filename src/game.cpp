@@ -11,18 +11,30 @@ void game::playgame()
 {
     bool endgame=false;
     int numcol=0;
-        
-    if (newgame())
+    this->start();
+    while(1)
     {
-    rebootgame();
+        sleep(1);
     }
-    else
-    {
-        return;
-    }
+    // if (newgame())
+    // {
+    // rebootgame();
+    // }
+    // else
+    // {
+    //     return;
+    // }
     
 }
 
+int game::start()
+{
+    
+    
+    fenetre.Start();
+    controlManager.start(&gameTaskQueue);
+    board.Start(&gameTaskQueue);
+}
 
 bool game::newgame()
 {

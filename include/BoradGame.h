@@ -2,17 +2,21 @@
 #include <iostream>
 #include <controlQueue.h>
 #include <cube.h>
+#include <thread>
+
+
 class BoardGame
 {
     
     private:
-        pthread_t threadFenetre;
+        std::thread threadMainLogic;
         TaskQueue * taskQueue; 
         //mon tableau de je ne sais quelle variable
         Cube **plateau;
 
     public:
-        void Init();
+        int Start(TaskQueue  *taskQueueInit);
+        int UpdateBoard();
 
 
 };

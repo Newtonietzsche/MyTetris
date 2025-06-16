@@ -7,21 +7,22 @@
 #include <controlManager.h>
 
 
-ControlManager::ControlManager()
-{
-    
-    threadController  = std::thread(&ControlManager::getControl, this);
-}
-int ControlManager::start()
-{
 
+int ControlManager::start(TaskQueue  *taskQueueInit)
+{
+    // printf("start contol manager");
+    this->taskQueue=taskQueueInit;
+    threadController  = std::thread(&ControlManager::getControl, this);
     return 0;
 }
 int ControlManager::getControl()
 {
+    printf("begin control");
     while(continuer)
     {
+        printf("HAVE event");
         SDL_WaitEvent(&event);
+        printf("get event");
         if(event.type == SDL_QUIT)
         {
             continuer = SDL_FALSE;
@@ -29,20 +30,19 @@ int ControlManager::getControl()
             
         if(event.type == SDL_KEYDOWN)
         {
-            taskQueue->Push(event);
+            // if(!taskQueue)
+            // { 
+                // printf("instance de marde");
+                // return -1;
+            // }
+            taskQueue->Push(event); // ON doit instancier cette task queue
             printf("scancode TEST\n");
-        }
-            
-            
+        }            
     }      
-    
+
     return 0;
 }    
-// static void* ControlManager::GetControlWrapper(void* object)
-//     {
-//         reinterpret_cast<ControlManager*>(object)->getControl();
-//         return 0;
-//     }
+
 
 
 // if(event.key.keysym.scancode == SDL_SCANCODE_A)
