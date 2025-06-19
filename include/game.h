@@ -8,6 +8,7 @@
 #include "BoradGame.h"
 #include "controlManager.h"
 #include "controlQueue.h"
+#include "gameManager.h"
 #include <cube.h>
 
 
@@ -17,12 +18,13 @@
 class game
 {
     private:
-        TaskQueue gameTaskQueue;
-        BoardGame board;
-        Fenetre fenetre;
-        ControlManager controlManager;
-
-        Cube plateau[TAILLE_LARGEUR][TAILLE_HAUTEUR];
+        GameManager gameManager;
+        // TaskQueue gameTaskQueue;
+        // BoardGame board;
+        // Fenetre fenetre;
+        // ControlManager controlManager;
+// 
+        // Cube plateau[TAILLE_LARGEUR][TAILLE_HAUTEUR];
         
 
     public:

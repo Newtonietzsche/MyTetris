@@ -9,13 +9,13 @@ game::game()
 }
 void game::playgame()
 {
-    bool endgame=false;
-    int numcol=0;
+
+    std::cout<<"startGame"<<std::endl;
     this->start();
-    while(1)
-    {
-        sleep(1);
-    }
+    // while(1)
+    // {
+    //     continue;
+    // }
     // if (newgame())
     // {
     // rebootgame();
@@ -29,11 +29,8 @@ void game::playgame()
 
 int game::start()
 {
-    
-    
-    fenetre.Start();
-    controlManager.start(&gameTaskQueue);
-    board.Start(&gameTaskQueue);
+    gameManager.Start();
+    return 0;   
 }
 
 bool game::newgame()

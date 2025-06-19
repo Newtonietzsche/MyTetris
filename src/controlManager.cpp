@@ -5,27 +5,32 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <controlManager.h>
+#include <atomic>
 
+ControlManager::ControlManager(std::atomic<SDL_bool> *runningRef)
+{
+    this->running=runningRef;
+}
 
 
 int ControlManager::start(TaskQueue  *taskQueueInit)
 {
-    // printf("start contol manager");
+    printf("start contol manager");
     this->taskQueue=taskQueueInit;
-    threadController  = std::thread(&ControlManager::getControl, this);
+    // threadController  = std::thread(&ControlManager::getControl, this);
+    // threadController.join();
     return 0;
 }
 int ControlManager::getControl()
 {
     printf("begin control");
-    while(continuer)
+    while(running)
     {
-        printf("HAVE event");
-        SDL_WaitEvent(&event);
-        printf("get event");
+        SDL_WaitEvent(&event);   
         if(event.type == SDL_QUIT)
         {
-            continuer = SDL_FALSE;
+            printf("running out");
+            running->store(SDL_FALSE);
         }
             
         if(event.type == SDL_KEYDOWN)

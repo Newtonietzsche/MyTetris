@@ -7,10 +7,13 @@
 #include <SDL2/SDL.h>
 #include "controlQueue.h"
 #include <thread>
+#include <atomic>
 
 class ControlManager
 {
     private:
+
+        std::atomic<SDL_bool> *running;
         int tailleFenetre;
         std::thread threadController;
         SDL_Event event;
@@ -23,7 +26,7 @@ class ControlManager
         int ** tableauTot;
     public:
         //ControlManager();
-        // ControlManager(TaskQueue  &taskQueueInit );
+        ControlManager(std::atomic<SDL_bool> * runningRef);
         int start(TaskQueue  *taskQueueInit);
         int getControl();    
         // static void* GetControlWrapper(void* object);

@@ -7,7 +7,7 @@
 #include <SDL2/SDL.h>
 #include <thread>
 #include <cube.h>
-
+#include <atomic>
 
 #define GAME_WINDOW_SIZE 30 //squareSize en fait
 #define SQUARE_WIDTH_SIZE 33
@@ -16,6 +16,8 @@
 class Fenetre
 {
     private:
+        std::atomic<SDL_bool> *running;
+
         int tailleFenetre;
         SDL_Window *window = NULL;
         SDL_Renderer *renderer = NULL;
@@ -36,7 +38,7 @@ class Fenetre
         Cube **plateau;
 
     public:
-        Fenetre();
+        Fenetre(std::atomic<SDL_bool> *runningRef); 
         int Start();
         int SetRenderColor(SDL_Renderer &renderer,SDL_Color &color);
         int PrintColor();

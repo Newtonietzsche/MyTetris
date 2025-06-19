@@ -10,7 +10,9 @@
 #define SQUARE_HEIGH_SIZE 34   
 
 int main(int argc, char* argv[])
-{    
+
+{
+    std::cout<<"start Main"<<std::endl;    
     if (argc == 1)
     {
         game jeu;
