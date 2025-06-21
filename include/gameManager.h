@@ -4,6 +4,7 @@
 #include "BoradGame.h"
 #include "controlQueue.h"
 #include "controlManager.h"
+#include <memory>
 
 #define TAILLE_LARGEUR 10
 #define TAILLE_HAUTEUR 20
@@ -12,8 +13,8 @@ class GameManager
 
 {
     private:
-        std::atomic<SDL_bool> *running;
-        // int TAILLE_LARGEUR,TAILLE_HAUTEUR;
+        std::shared_ptr<std::atomic<SDL_bool>> running;
+        SDL_bool *runningBool;
         TaskQueue gameTaskQueue;
         BoardGame board;
         Fenetre *fenetre;
@@ -27,6 +28,7 @@ class GameManager
 
     public:
         GameManager();
+        ~GameManager();
         // GameManager(int tailleLargeur, int tailleHauteur);
         int Start();
         int Stop();

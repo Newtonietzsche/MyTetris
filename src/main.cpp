@@ -9,21 +9,37 @@
 #define SQUARE_WIDTH_SIZE 33
 #define SQUARE_HEIGH_SIZE 34   
 
-int main(int argc, char* argv[])
+int main([[maybe_unused]]int argc,[[maybe_unused]] char* argv[])
 
 {
-    std::cout<<"start Main"<<std::endl;    
-    if (argc == 1)
+    try 
     {
         game jeu;
         jeu.playgame();
-    }
-       
-    else
+        std::cout<<"Fin du main"<<std::endl;
+    } 
+    catch (const std::exception &e)
     {
-        std::cerr << "Usage: " << argv[0] << " <nbdejoueur> <puissance>" << std::endl;
-        return 1; // Quitte le programme avec un code d'erreur
+        std::cerr << "Exception attrapée : " << e.what() << std::endl;
     }
+    catch (...) 
+    {
+        std::cerr << "Exception inconnue attrapée" << std::endl;
+    } 
+    
+
+// 
+    // if (argc == 1)
+    // {
+        // game jeu;
+        // jeu.playgame();
+    // }
+    //    
+    // else
+    // {
+        // 
+        // return 1; // Quitte le programme avec un code d'erreur
+    // }
 
     
 

@@ -1,5 +1,3 @@
-
-#include <pthread.h>
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,43 +5,40 @@
 #include <controlManager.h>
 #include <atomic>
 
-ControlManager::ControlManager(std::atomic<SDL_bool> *runningRef)
+ControlManager::ControlManager(std::shared_ptr<std::atomic<SDL_bool>> runningRef)
 {
+    std::cout<<"controle manager déclaration"<<std::endl;
     this->running=runningRef;
 }
 
 
 int ControlManager::start(TaskQueue  *taskQueueInit)
 {
-    printf("start contol manager");
+    std::cout<<"controle manager Start"<<std::endl;
     this->taskQueue=taskQueueInit;
-    // threadController  = std::thread(&ControlManager::getControl, this);
-    // threadController.join();
     return 0;
 }
 int ControlManager::getControl()
 {
-    printf("begin control");
-    while(running)
+    std::cout<<"begin control"<<std::endl;
+    std::cout<<"sdl False value"<<SDL_FALSE<<std::endl;
+    std::cout<<"running value "<<running.get()->load()<<std::endl;
+    while(running.get()->load())
     {
         SDL_WaitEvent(&event);   
         if(event.type == SDL_QUIT)
         {
-            printf("running out");
-            running->store(SDL_FALSE);
+            std::cout<<"run out "<<std::endl;
+            running.get()->store(SDL_FALSE);
         }
             
         if(event.type == SDL_KEYDOWN)
         {
-            // if(!taskQueue)
-            // { 
-                // printf("instance de marde");
-                // return -1;
-            // }
-            taskQueue->Push(event); // ON doit instancier cette task queue
-            printf("scancode TEST\n");
+            taskQueue->Push(event); // On doit instancier cette task queue
+            std::cout<<"scan Code "<<std::endl;
         }            
     }      
+    std::cout << "Controle manager end " << std::endl;
 
     return 0;
 }    

@@ -6,7 +6,7 @@
 int BoardGame::Start(TaskQueue  *taskQueueInit)
 {
     this->taskQueue=taskQueueInit;
-    threadMainLogic  = std::thread(&BoardGame::UpdateBoard, this);
+    // threadMainLogic  = std::thread(&BoardGame::UpdateBoard, this);
     return 0;
 }
 

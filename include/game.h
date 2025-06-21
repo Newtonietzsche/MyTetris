@@ -28,7 +28,7 @@ class game
         
 
     public:
-    game();
+    
     int start();
     bool newgame();
     void playgame();

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <pthread.h>
+#include <memory>
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,9 +13,8 @@ class ControlManager
 {
     private:
 
-        std::atomic<SDL_bool> *running;
+        std::shared_ptr<std::atomic<SDL_bool>> running;
         int tailleFenetre;
-        std::thread threadController;
         SDL_Event event;
         SDL_bool continuer=SDL_TRUE;
 
@@ -26,7 +25,7 @@ class ControlManager
         int ** tableauTot;
     public:
         //ControlManager();
-        ControlManager(std::atomic<SDL_bool> * runningRef);
+        ControlManager(std::shared_ptr<std::atomic<SDL_bool>>  runningRef);
         int start(TaskQueue  *taskQueueInit);
         int getControl();    
         // static void* GetControlWrapper(void* object);

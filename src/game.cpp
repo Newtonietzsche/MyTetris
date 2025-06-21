@@ -3,14 +3,13 @@
 #include <string.h>
 
 
-game::game()
-{
-    
-}
+
+
+
 void game::playgame()
 {
 
-    std::cout<<"startGame"<<std::endl;
+    
     this->start();
     // while(1)
     // {
@@ -24,14 +23,33 @@ void game::playgame()
     // {
     //     return;
     // }
-    
+    std::cout<<"game  end"<<std::endl;
 }
 
 int game::start()
 {
     gameManager.Start();
+    
     return 0;   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+void game::rebootgame()
+{
+    playgame();
+}
+
 
 bool game::newgame()
 {
@@ -60,7 +78,4 @@ bool game::newgame()
     }
     
 }
-void game::rebootgame()
-{
-    playgame();
-}
+

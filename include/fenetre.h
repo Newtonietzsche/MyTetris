@@ -1,6 +1,6 @@
 #pragma once
 
-#include <pthread.h>
+#include <memory>
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,7 +16,7 @@
 class Fenetre
 {
     private:
-        std::atomic<SDL_bool> *running;
+        std::shared_ptr<std::atomic<SDL_bool>> running;
 
         int tailleFenetre;
         SDL_Window *window = NULL;
@@ -33,12 +33,12 @@ class Fenetre
         SDL_Color bleu = {0, 0, 255, 255};
         SDL_Color noir = {0, 0, 0,0};
 
-        std::thread threadFenetre;
+        // std::thread threadFenetre;
         
         Cube **plateau;
 
     public:
-        Fenetre(std::atomic<SDL_bool> *runningRef); 
+        Fenetre(std::shared_ptr<std::atomic<SDL_bool>> runningRef); 
         int Start();
         int SetRenderColor(SDL_Renderer &renderer,SDL_Color &color);
         int PrintColor();

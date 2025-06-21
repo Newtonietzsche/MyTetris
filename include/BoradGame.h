@@ -9,7 +9,7 @@ class BoardGame
 {
     
     private:
-        std::thread threadMainLogic;
+        // std::thread threadMainLogic;
         TaskQueue * taskQueue; 
         //mon tableau de je ne sais quelle variable
         Cube **plateau;
