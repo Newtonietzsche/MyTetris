@@ -14,9 +14,9 @@ class GameManager
 {
     private:
         std::shared_ptr<std::atomic<SDL_bool>> running;
-        SDL_bool *runningBool;
+        
         TaskQueue gameTaskQueue;
-        BoardGame board;
+        BoardGame *board;
         Fenetre *fenetre;
         ControlManager *controlManager;
 
@@ -24,6 +24,8 @@ class GameManager
 
         std::thread threadController;
         std::thread threadFenetre;
+        std::thread threadBoard;
+        
         
 
     public:

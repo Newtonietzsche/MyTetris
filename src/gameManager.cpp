@@ -8,12 +8,9 @@ GameManager::GameManager()
     std::cout<<"Build game manager"<<std::endl;
     
     running = std::make_shared<std::atomic<SDL_bool>>(SDL_TRUE); 
-    // this->running->store(SDL_FALSE);
-    // runningBool = new SDL_bool;
     this->controlManager=new ControlManager(running);
     this->fenetre=new Fenetre(running);
-
-    
+    this->board=new BoardGame(running);
 }
 GameManager::~GameManager()
 {
@@ -22,6 +19,7 @@ GameManager::~GameManager()
     std::cout<<"control Manager Deleted"<<std::endl;
     delete (this->fenetre);
     std::cout<<"fenetre deleted"<<std::endl;
+    delete(this->board);
 }
 
 // GameManager::GameManager(int tailleLargeur, int tailleHauteur)
@@ -35,15 +33,19 @@ int GameManager::Start()
 {
     std::cout<<"start game manager"<<std::endl;
     controlManager->start(&gameTaskQueue);
-    std::cout<<"control manager instanciate"<<std::endl;
     fenetre->Start();
-    std::cout<<"fenetre start"<<std::endl;
-    board.Start(&gameTaskQueue);
-    std::cout<<"board start"<<std::endl;
+    board->Start(&gameTaskQueue);
+    
 
     threadController  = std::thread(&ControlManager::getControl, controlManager);
-
     threadFenetre = std::thread(&Fenetre::RefreshWindow, this->fenetre);
+    threadBoard= std::thread(&BoardGame::UpdateBoard, this->board);
+    
+    if (threadBoard.joinable())
+    {
+        threadBoard.join();
+    }
+
     if (threadController.joinable())
     {
         threadController.join();
@@ -53,7 +55,6 @@ int GameManager::Start()
     {
         threadFenetre.join();   
     }
-
 
     return 0;
 }

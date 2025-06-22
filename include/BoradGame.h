@@ -11,10 +11,12 @@ class BoardGame
     private:
         // std::thread threadMainLogic;
         TaskQueue * taskQueue; 
+        std::shared_ptr<std::atomic<SDL_bool>> running;
         //mon tableau de je ne sais quelle variable
         Cube **plateau;
 
     public:
+        BoardGame(std::shared_ptr<std::atomic<SDL_bool>> runningRef);
         int Start(TaskQueue  *taskQueueInit);
         int UpdateBoard();
 

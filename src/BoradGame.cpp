@@ -1,12 +1,16 @@
-
 #include <iostream>
 #include <BoradGame.h>
+
+BoardGame::BoardGame(std::shared_ptr<std::atomic<SDL_bool>> runningRef)
+{
+    
+}
+
 
 
 int BoardGame::Start(TaskQueue  *taskQueueInit)
 {
     this->taskQueue=taskQueueInit;
-    // threadMainLogic  = std::thread(&BoardGame::UpdateBoard, this);
     return 0;
 }
 
