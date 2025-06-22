@@ -11,18 +11,7 @@ void game::playgame()
 
     
     this->start();
-    // while(1)
-    // {
-    //     continue;
-    // }
-    // if (newgame())
-    // {
-    // rebootgame();
-    // }
-    // else
-    // {
-    //     return;
-    // }
+
     std::cout<<"game  end"<<std::endl;
 }
 

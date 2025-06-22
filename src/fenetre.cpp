@@ -79,12 +79,14 @@ int Fenetre::SetRenderColor(SDL_Renderer &renderer,SDL_Color &color)
 int Fenetre::PrintPlateau()
 {
     //on parcours tout le tableau 
+    SetBackGround();
+    PrintCubes();
     // on prend la couleur de l'élément 
     // on dessine un carré à l'endroit prévu
     return 0;
 }
 
-void Fenetre::RefreshWindow()
+int Fenetre::RefreshWindow()
 {
     std::cout<<"refresh begin"<<std::endl;
     while(running.get()->load())
@@ -92,16 +94,27 @@ void Fenetre::RefreshWindow()
         
         PrintPlateau();
     }
-    std::cout << "Fenetre before close " << std::endl;
+    
     this->CloseWindow();
     std::cout << "Fenetre after close " << std::endl;
+    return 0;
+}
+
+
+int Fenetre::SetBackGround()
+{
+
+    return 0;
+}
+int Fenetre::PrintCubes()
+{
+
+    return 0;
 }
 
 
 int Fenetre::CloseWindow()
 {   
-    
-
     if(NULL != renderer)
         SDL_DestroyRenderer(renderer);
     if(NULL != window)

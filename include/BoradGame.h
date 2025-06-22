@@ -11,9 +11,11 @@ class BoardGame
     private:
         // std::thread threadMainLogic;
         TaskQueue * taskQueue; 
+        SDL_Event currentEvent;
         std::shared_ptr<std::atomic<SDL_bool>> running;
         //mon tableau de je ne sais quelle variable
         Cube **plateau;
+        std::vector<std::vector<Cube>> plateauVect  ;
 
     public:
         BoardGame(std::shared_ptr<std::atomic<SDL_bool>> runningRef);

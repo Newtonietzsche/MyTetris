@@ -22,3 +22,8 @@ int TaskQueue::Pop(SDL_Event &newEvent)
     mutexForQueue.unlock();
     return 0;
 }
+
+int TaskQueue::GetSize()
+{
+    return queueDesTaches.size();
+}

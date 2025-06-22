@@ -33,7 +33,7 @@ class Fenetre
         SDL_Color bleu = {0, 0, 255, 255};
         SDL_Color noir = {0, 0, 0,0};
 
-        // std::thread threadFenetre;
+        
         
         Cube **plateau;
 
@@ -43,7 +43,10 @@ class Fenetre
         int SetRenderColor(SDL_Renderer &renderer,SDL_Color &color);
         int PrintColor();
         int PrintPlateau();
-        void RefreshWindow();
+        int RefreshWindow();
+        int SetBackGround();
+        int PrintCubes();
+
         int CloseWindow();
 
         

@@ -31,19 +31,41 @@ LES FONCTIONNALITÉES :
 
 
 
+Trouver sous quelle forme afficher mon tableau et comment le gérer.
+Faire la taille de la fenêtre de SDL en fonction de la taille que je veux et la taille de l'écran
 
-Pour le render ,
+
+Pour le render,
 faire des blocs par couleurs: 
 pour chaque bloque à afficher, définir la taille du tableau render, le définir et le lancer.
 
 
 
-FAIT:
--> trouver comment faire des carré et ou les affichers.
--> trouver comment gérer les gestions de touches
 
 PLUS TARD:
  Possibilité multi-joueur:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -54,8 +76,6 @@ Dans le Thread Principal:
 
 
 
-Faire un thread principale pour la gestion des events.
-Faire un thread secondaire pour calculer tout le reste.
 
 Boucle principale du programme
     Gestion_Évènements
@@ -64,16 +84,5 @@ Boucle principale du programme
 Fin Boucle
 Quitter
 
-
-pour un thread il faut :
-une condition de stop 
-instancier un thread.
-
-j'ai mon main
--> classe game avcec fonction principale 
-
-Deux threads :
-    un avec l'image.
-    un avec les commandes
 
 

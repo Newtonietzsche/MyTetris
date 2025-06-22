@@ -18,14 +18,7 @@
 class game
 {
     private:
-        GameManager gameManager;
-        // TaskQueue gameTaskQueue;
-        // BoardGame board;
-        // Fenetre fenetre;
-        // ControlManager controlManager;
-// 
-        // Cube plateau[TAILLE_LARGEUR][TAILLE_HAUTEUR];
-        
+        GameManager gameManager;       
 
     public:
     

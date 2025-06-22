@@ -9,7 +9,8 @@
 #include <queue>
 #include <SDL2/SDL.h>
 
-class TaskQueue {
+class TaskQueue 
+{
 
 private:
     std::queue<SDL_Event> queueDesTaches;
@@ -19,6 +20,7 @@ private:
 public:
     int Push(SDL_Event newEvent);
     int Pop(SDL_Event &getEvent);
+    int GetSize();
     int Flush();   
 
 };

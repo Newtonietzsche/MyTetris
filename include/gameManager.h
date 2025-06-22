@@ -20,7 +20,8 @@ class GameManager
         Fenetre *fenetre;
         ControlManager *controlManager;
 
-        Cube plateau[TAILLE_LARGEUR][TAILLE_HAUTEUR];
+        std::vector<std::vector<Cube>> plateau;
+        // Cube plateau[TAILLE_LARGEUR][TAILLE_HAUTEUR];
 
         std::thread threadController;
         std::thread threadFenetre;

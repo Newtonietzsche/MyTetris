@@ -35,7 +35,7 @@ int ControlManager::getControl()
         if(event.type == SDL_KEYDOWN)
         {
             taskQueue->Push(event); // On doit instancier cette task queue
-            std::cout<<"scan Code "<<std::endl;
+            std::cout<<taskQueue->GetSize()<<std::endl;  
         }            
     }      
     std::cout << "Controle manager end " << std::endl;
@@ -45,10 +45,7 @@ int ControlManager::getControl()
 
 
 
-// if(event.key.keysym.scancode == SDL_SCANCODE_A)
-// {
-    // printf("scancode A\n");
-// }
+
     // 
 // if(event.key.keysym.scancode == SDL_SCANCODE_Q)
     // {

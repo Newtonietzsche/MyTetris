@@ -24,7 +24,7 @@ class ControlManager
         TaskQueue *taskQueue ;        
         int ** tableauTot;
     public:
-        //ControlManager();
+        
         ControlManager(std::shared_ptr<std::atomic<SDL_bool>>  runningRef);
         int start(TaskQueue  *taskQueueInit);
         int getControl();    
