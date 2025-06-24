@@ -9,8 +9,10 @@ Fenetre::Fenetre(std::shared_ptr<std::atomic<SDL_bool>> runningRef)
     
 
 
-int Fenetre::Start()
+int Fenetre::Start(Plateau *plateauRef )
 {
+
+    this->plateau=plateauRef;
     if(0 != SDL_Init(SDL_INIT_VIDEO))
     {
         fprintf(stderr, "Erreur SDL_Init : %s", SDL_GetError());

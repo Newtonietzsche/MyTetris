@@ -8,7 +8,7 @@ class Plateau
         int hauteur;
         std::vector<std::vector<Cube>> plateau;
     public:
-        Plateau(const int largeur, const int hauteur);
+        Plateau(int largeur, int hauteur);
         int InitPlateau();
         int GetPlateau();
         int WritePlateau();

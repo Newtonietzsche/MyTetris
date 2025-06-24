@@ -8,9 +8,10 @@ BoardGame::BoardGame(std::shared_ptr<std::atomic<SDL_bool>> runningRef)
 
 
 
-int BoardGame::Start(TaskQueue  *taskQueueInit)
+int BoardGame::Start(TaskQueue  *taskQueueInit,Plateau *plateauRef)
 {
     this->taskQueue=taskQueueInit;
+    this->plateau=plateauRef;
     return 0;
 }
 

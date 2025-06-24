@@ -32,9 +32,9 @@ GameManager::~GameManager()
 int GameManager::Start()
 {
     std::cout<<"start game manager"<<std::endl;
-    controlManager->start(&gameTaskQueue);
-    fenetre->Start();
-    board->Start(&gameTaskQueue);
+    controlManager->start(&this->gameTaskQueue);
+    fenetre->Start(&this->plateau);
+    board->Start(&this->gameTaskQueue,&this->plateau);
     
 
     threadController  = std::thread(&ControlManager::getControl, controlManager);

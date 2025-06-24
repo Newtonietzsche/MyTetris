@@ -12,8 +12,8 @@
 #include <cube.h>
 
 
-#define TAILLE_LARGEUR 10
-#define TAILLE_HAUTEUR 20
+// #define TAILLE_LARGEUR 10
+// #define TAILLE_HAUTEUR 20
 
 class game
 {

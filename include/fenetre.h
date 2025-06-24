@@ -8,6 +8,7 @@
 #include <thread>
 #include <cube.h>
 #include <atomic>
+#include "Plateau.h"
 
 #define GAME_WINDOW_SIZE 30 //squareSize en fait
 #define SQUARE_WIDTH_SIZE 33
@@ -33,13 +34,15 @@ class Fenetre
         SDL_Color bleu = {0, 0, 255, 255};
         SDL_Color noir = {0, 0, 0,0};
 
+        Plateau *plateau;
+
         
         
-        Cube **plateau;
+        
 
     public:
         Fenetre(std::shared_ptr<std::atomic<SDL_bool>> runningRef); 
-        int Start();
+        int Start(Plateau *plateauRef);
         int SetRenderColor(SDL_Renderer &renderer,SDL_Color &color);
         int PrintColor();
         int PrintPlateau();
