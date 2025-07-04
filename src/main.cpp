@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define GAME_WINDOW_SIZE 30 //squareSize en fait
+#define SQUARE_SIZE 30 //squareSize en fait
 #define SQUARE_WIDTH_SIZE 33
 #define SQUARE_HEIGH_SIZE 34   
 
@@ -26,7 +26,6 @@ int main([[maybe_unused]]int argc,[[maybe_unused]] char* argv[])
     {
         std::cerr << "Exception inconnue attrapée" << std::endl;
     } 
-    
 
 // 
     // if (argc == 1)

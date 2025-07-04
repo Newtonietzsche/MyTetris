@@ -19,7 +19,7 @@ int Fenetre::Start(Plateau *plateauRef )
         return(-1);
     }
     window = SDL_CreateWindow("SDL2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-                            GAME_WINDOW_SIZE*SQUARE_WIDTH_SIZE, GAME_WINDOW_SIZE*SQUARE_HEIGH_SIZE, SDL_WINDOW_SHOWN);
+                            SQUARE_SIZE*SQUARE_WIDTH_SIZE, SQUARE_SIZE*SQUARE_HEIGH_SIZE, SDL_WINDOW_SHOWN);
     if(NULL == window)
     {
         fprintf(stderr, "Erreur SDL_CreateWindow : %s", SDL_GetError());
@@ -31,11 +31,10 @@ int Fenetre::Start(Plateau *plateauRef )
         fprintf(stderr, "Erreur SDL_CreateRenderer : %s", SDL_GetError());
         return(-1);
     }
+
+
     SDL_SetWindowTitle(window,title);
-
-
-
-    SDL_SetRenderDrawColor(renderer, bleu.r, bleu.g, bleu.b, bleu.a);
+    SDL_SetRenderDrawColor(renderer, paletteDeCouleurs["bleu"].r, paletteDeCouleurs["bleu"].g, paletteDeCouleurs["bleu"].b, paletteDeCouleurs["bleu"].a);
     
     SDL_Rect rect[50];
     size_t i = 0;
@@ -49,7 +48,7 @@ int Fenetre::Start(Plateau *plateauRef )
     SDL_RenderFillRects(renderer, rect, 50); 
     SDL_RenderPresent(renderer);
     SDL_Delay(300);
-    SDL_SetRenderDrawColor(renderer, orange.r, orange.g, orange.b, orange.a);
+    SDL_SetRenderDrawColor(renderer, paletteDeCouleurs["orange"].r, paletteDeCouleurs["orange"].g, paletteDeCouleurs["orange"].b, paletteDeCouleurs["orange"].a);
 
     SDL_Rect rectg[50];
 
@@ -62,9 +61,7 @@ int Fenetre::Start(Plateau *plateauRef )
     }
     SDL_RenderFillRects(renderer, rectg, 50); 
     SDL_RenderPresent(renderer);
-
-
-
+    
     return 0;
 }
 
@@ -81,6 +78,8 @@ int Fenetre::SetRenderColor(SDL_Renderer &renderer,SDL_Color &color)
 int Fenetre::PrintPlateau()
 {
     //on parcours tout le tableau 
+    //this->plateau->DisplayPlateau();
+    
     SetBackGround();
     PrintCubes();
     // on prend la couleur de l'élément 
@@ -93,10 +92,8 @@ int Fenetre::RefreshWindow()
     std::cout<<"refresh begin"<<std::endl;
     while(running.get()->load())
     {
-        
         PrintPlateau();
     }
-    
     this->CloseWindow();
     std::cout << "Fenetre after close " << std::endl;
     return 0;
@@ -105,11 +102,32 @@ int Fenetre::RefreshWindow()
 
 int Fenetre::SetBackGround()
 {
-
+    
+    SDL_Rect rectBackGround;
+    SDL_RenderClear(this->renderer);
+    this->SetRenderColor(*this->renderer,paletteDeCouleurs["noir"]);
+    rectBackGround.h=SQUARE_SIZE*SQUARE_WIDTH_SIZE;
+    rectBackGround.w= SQUARE_SIZE*SQUARE_HEIGH_SIZE;
+    rectBackGround.x=0;
+    rectBackGround.y=0;
+    SDL_RenderFillRect(this->renderer, &rectBackGround);
+    SDL_RenderPresent(this->renderer);
+    
     return 0;
 }
 int Fenetre::PrintCubes()
 {
+    //on parcours tous les cube de 
+    for (int k=0; k<plateau->GetLargeur();k++)
+    {
+        for (int l=0; l<plateau->GetHauteur();l++)
+        {
+            std::cout<<plateau->GetCube(l,k).GetId()<<" ";
+        }
+        std::cout<<std::endl;
+    }
+
+    std::cout<<std::endl<<std::endl;
 
     return 0;
 }

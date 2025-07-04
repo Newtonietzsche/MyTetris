@@ -3,21 +3,23 @@
 #include <controlQueue.h>
 #include "couleur.h"
 #include <SDL2/SDL.h>
+
+
 class Cube
 {
     
     private:
         int id;
         SDL_Color couleur;
-        int position[2];
-        int pixelPosition;
         int existance = 0;
 
         //mon tableau de je ne sais quelle variable
 
     public:
         
-
+    Cube();
+    int GetId();
+    SDL_Color GetCubeColor();
    
 };
 

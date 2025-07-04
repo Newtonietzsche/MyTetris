@@ -1,5 +1,6 @@
 #pragma once
 #include <cube.h>
+#include <iostream>
 
 class Plateau
 {
@@ -12,5 +13,9 @@ class Plateau
         int InitPlateau();
         int GetPlateau();
         int WritePlateau();
+        void DisplayPlateau();
+        int GetLargeur();
+        int GetHauteur();
+        Cube GetCube(int largeurIndex,int hauteurIndex);
 
 };

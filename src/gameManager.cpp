@@ -8,6 +8,7 @@ GameManager::GameManager()
     std::cout<<"Build game manager"<<std::endl;
     
     running = std::make_shared<std::atomic<SDL_bool>>(SDL_TRUE); 
+    this->plateau.InitPlateau();
     this->controlManager=new ControlManager(running);
     this->fenetre=new Fenetre(running);
     this->board=new BoardGame(running);
@@ -38,8 +39,9 @@ int GameManager::Start()
     
 
     threadController  = std::thread(&ControlManager::getControl, controlManager);
-    threadFenetre = std::thread(&Fenetre::RefreshWindow, this->fenetre);
+    // threadFenetre = std::thread(&Fenetre::RefreshWindow, this->fenetre);
     threadBoard= std::thread(&BoardGame::UpdateBoard, this->board);
+    this->fenetre->RefreshWindow();
     
     if (threadBoard.joinable())
     {
@@ -51,10 +53,10 @@ int GameManager::Start()
         threadController.join();
     }
 
-    if (threadFenetre.joinable())
-    {
-        threadFenetre.join();   
-    }
+    // if (threadFenetre.joinable())
+    // {
+        // threadFenetre.join();   
+    // }
 
     return 0;
 }

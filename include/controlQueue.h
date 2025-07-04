@@ -17,6 +17,7 @@ private:
     std::mutex mutexForQueue;
     std::condition_variable cv_;
     bool stopped_ = false;
+    
 public:
     int Push(SDL_Event newEvent);
     int Pop(SDL_Event &getEvent);
