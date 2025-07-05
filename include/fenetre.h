@@ -10,6 +10,7 @@
 #include <atomic>
 #include "Plateau.h"
 #include "couleur.h"
+#include <chrono>
 
 #define SQUARE_SIZE 30 //squareSize en fait
 #define SQUARE_WIDTH_SIZE 33
@@ -25,6 +26,7 @@ class Fenetre
         SDL_Renderer *renderer = NULL;
         int statut = EXIT_FAILURE;
         const char* title = "Tetris";
+        SDL_Rect mesCubes[SQUARE_WIDTH_SIZE*SQUARE_HEIGH_SIZE];
 
         int squareSize = 30;
         int squareWidthSize = 33;
@@ -40,7 +42,9 @@ class Fenetre
         Fenetre(std::shared_ptr<std::atomic<SDL_bool>> runningRef); 
         int Start(Plateau *plateauRef);
         int SetRenderColor(SDL_Renderer &renderer,SDL_Color &color);
-        int PrintCube();
+        int PrintCube(int largeurIndex, int hauteurIndex, SDL_Color color);
+        int GetIdFromIndexes(int largeurIndex, int hauteurIndex);
+        int SetRectCube(SDL_Rect &rectangle, int largeurIndex, int hauteurIndex);
         int PrintPlateau();
         int RefreshWindow();
         int SetBackGround();

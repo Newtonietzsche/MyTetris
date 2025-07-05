@@ -70,7 +70,7 @@ int Fenetre::SetRenderColor(SDL_Renderer &renderer,SDL_Color &color)
     if(0 != SDL_SetRenderDrawColor(&renderer, color.r, color.g, color.b, color.a))
     {
         fprintf(stderr, "Erreur SDL_SetRenderDrawColor : %s", SDL_GetError());
-    return -1;
+        return -1;
     }
     return 0 ;
 }
@@ -93,6 +93,7 @@ int Fenetre::RefreshWindow()
     while(running.get()->load())
     {
         PrintPlateau();
+        std::this_thread::sleep_for(std::chrono::milliseconds(2));
     }
     this->CloseWindow();
     std::cout << "Fenetre after close " << std::endl;
@@ -122,17 +123,34 @@ int Fenetre::PrintCubes()
     {
         for (int l=0; l<plateau->GetHauteur();l++)
         {
-            std::cout<<plateau->GetCube(l,k).GetId()<<" ";
-        }
-        std::cout<<std::endl;
+            PrintCube(k,l,plateau->GetCube(l,k).GetCubeColor());
+        }   
     }
 
-    std::cout<<std::endl<<std::endl;
+    SDL_RenderFillRects(this->renderer, this->mesCubes,SQUARE_WIDTH_SIZE*SQUARE_HEIGH_SIZE);
+    SDL_RenderPresent(this->renderer);
 
     return 0;
 }
+int Fenetre::PrintCube(int largeurIndex,int hauteurIndex, SDL_Color color)
+{
+    SetRenderColor(*this->renderer, color);
+    SetRectCube(this->mesCubes[GetIdFromIndexes(largeurIndex,hauteurIndex)],largeurIndex,hauteurIndex);
 
-
+    return 0;
+}
+int Fenetre::GetIdFromIndexes(int largeurIndex,int hauteurIndex)
+{
+    return largeurIndex*SQUARE_WIDTH_SIZE + hauteurIndex;
+}
+int Fenetre::SetRectCube(SDL_Rect &rectangle, int largeurIndex,int hauteurIndex)
+{
+    rectangle.h = SQUARE_SIZE - 4 ;
+    rectangle.w = SQUARE_SIZE - 4 ;
+    rectangle.x = SQUARE_SIZE*largeurIndex+10;
+    rectangle.y = SQUARE_SIZE*hauteurIndex+10;
+    return 0 ;
+}
 int Fenetre::CloseWindow()
 {   
     if(NULL != renderer)
@@ -142,6 +160,23 @@ int Fenetre::CloseWindow()
     SDL_Quit();
     return statut;
 }
+
+
+
+
+
+
+
+
+
+
+// -> tous les  k + l -> id = 
+
+
+
+
+
+
 
 
 
