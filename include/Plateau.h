@@ -16,6 +16,9 @@ class Plateau
         void DisplayPlateau();
         int GetLargeur();
         int GetHauteur();
+        int RemoveCube(int largeurIndex, int hauteurIndex);
+        int SetCube(int largeurIndex, int hauteurIndex, SDL_Color couleurCube);
+        int SetPlusieursCubes(int largeurIndex, int hauteurIndex , int * cubes,SDL_Color couleurCube );
         Cube GetCube(int largeurIndex,int hauteurIndex);
 
 };

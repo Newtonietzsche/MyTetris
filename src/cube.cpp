@@ -6,7 +6,7 @@
 Cube::Cube()
 {
     this->id=0;
-    this->couleur=paletteDeCouleurs["rouge"];
+    this->couleur=paletteDeCouleurs["noir"];
 }
 
 int Cube::GetId()
@@ -17,6 +17,7 @@ SDL_Color Cube::GetCubeColor()
 {
     return couleur;
 }
+
 /*
 Cahier des charges:
 

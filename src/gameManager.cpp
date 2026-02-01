@@ -53,10 +53,6 @@ int GameManager::Start()
         threadController.join();
     }
 
-    // if (threadFenetre.joinable())
-    // {
-        // threadFenetre.join();   
-    // }
 
     return 0;
 }

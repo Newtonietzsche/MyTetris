@@ -63,3 +63,16 @@ Cube Plateau::GetCube(int largeurIndex,int hauteurIndex)
 {
     return(this->plateau[largeurIndex][hauteurIndex]);
 }
+
+int Plateau::RemoveCube(int largeurIndex, int hauteurIndex)
+{
+    return 0;
+}
+int Plateau::SetCube(int largeurIndex, int hauteurIndex, SDL_Color couleurCube)
+{
+    return 0;
+}
+int Plateau::SetPlusieursCubes(int largeurIndex, int hauteurIndex , int * cubes, SDL_Color couleurCube )
+{
+    return 0;
+}

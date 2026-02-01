@@ -13,21 +13,31 @@ Qui les affichent ensuite dans le SDL
 
 LES FONCTIONNALITÉES :
 - l'affichage:
-    - Afficher une grille prédef par le code.
-    - gestion des effets spéciaux
+    - [X] Afficher une grille prédef par le code. 
+    - [ ] gestion des effets spéciaux
 
 - la gestion du jeu :
-    - Descente automatique
-    - Rotation des blocs
-    - Pose de rapide
-    - suppression des lignes
-    - sockage des blocs
+    - [ ]sockage des blocs
+    - [ ] Création du tétrimino:
+        -> Définition position de base
+        -> Définition définition du bloc le plus base
+    - [ ] Ajouts de plusieur blocs dans le plateau
+    - [ ]Descente automatique
+    - [ ]Rotation des blocs
+    - [ ]Pose rapide
+    - [ ]suppression des lignes
 
 
-- tableau des scores
-- Gestion des inputs :
-    -Gères les commandes qui influent sur les blocs
-- gestions des blocs
+
+- [ ]tableau des scores
+- [ ]Gestion des inputs :
+  [ ]  -Gères les commandes qui influent sur les blocs
+- [ ]gestions des blocs
+
+
+
+
+Je dois afficher un tétrimino:
 
 
 
@@ -44,14 +54,6 @@ pour chaque bloque à afficher, définir la taille du tableau render, le défini
 
 PLUS TARD:
  Possibilité multi-joueur:
-
-
-
-
-
-
-
-
 
 
 

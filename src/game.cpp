@@ -23,17 +23,6 @@ int game::start()
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 void game::rebootgame()
 {
     playgame();

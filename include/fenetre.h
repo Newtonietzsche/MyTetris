@@ -12,7 +12,7 @@
 #include "couleur.h"
 #include <chrono>
 
-#define SQUARE_SIZE 30 //squareSize en fait
+#define SQUARE_SIZE 40 //squareSize en fait
 #define SQUARE_WIDTH_SIZE 33
 #define SQUARE_HEIGH_SIZE 34  
 
@@ -28,10 +28,15 @@ class Fenetre
         const char* title = "Tetris";
         SDL_Rect mesCubes[SQUARE_WIDTH_SIZE*SQUARE_HEIGH_SIZE];
 
-        int squareSize = 30;
-        int squareWidthSize = 33;
-        int squareHeighSize = 34;
 
+        SDL_DisplayMode DM;
+        int Width; 
+        int Height;  
+        int MidWidth;
+        int MidHeight;
+        int HeightPrintSize;
+        int WidthPrintSize;
+        
         Plateau *plateau;
 
         
@@ -49,6 +54,9 @@ class Fenetre
         int RefreshWindow();
         int SetBackGround();
         int PrintCubes();
+        int GetScreenSizeMainValue();
+        int SetPrintSizes(int largeurMaxIndex, int hauteurMaxIndex);
+        int PrintContours();
 
         int CloseWindow();
 

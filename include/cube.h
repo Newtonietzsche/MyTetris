@@ -29,7 +29,7 @@ Cahier des charges:
 
 Les logique de block
 logique de cube 
-Cube posé= cube séparé mais cube avec la couleur de son propre bloc
+Cube posé = cube séparé mais cube avec la couleur de son propre bloc
 
 */
 

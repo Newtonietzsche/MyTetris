@@ -27,10 +27,19 @@ int BoardGame::UpdateBoard()
             // }
             // std::cout<<"code scaned is "<<currentEvent.key.keysym.scancode <<std::endl;
         }
-        // else
-        // {
-        //     std::cout<<"No code scanned"<<std::endl;
-        // }
+
+        // à chaque update:
+        // créer un tétrimino si il y en a pas
+        // Sinon,
+        //  verif la commande
+        // vérif si superposition triomino avec un cube existant
+
+        //si superposition:
+            // supprimer le tétrimino
+            // supprmier les lignes si besoin
+            //faire descendres l'ensembles des ploce sous lesques il n'y a rien au dessous
+
+
 
     }
 
