@@ -1,0 +1,3 @@
+﻿BasedOnStyle: GNU
+BreakBeforeBraces: Allman
+SpaceBeforeParens: Never

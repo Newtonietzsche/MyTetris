@@ -1,37 +1,31 @@
 #pragma once
 
-#include <memory>
+#include "controlQueue.h"
+#include <SDL2/SDL.h>
+#include <atomic>
 #include <iostream>
+#include <memory>
 #include <stdio.h>
 #include <stdlib.h>
-#include <SDL2/SDL.h>
-#include "controlQueue.h"
 #include <thread>
-#include <atomic>
 
 class ControlManager
 {
-    private:
+  private:
+    std::shared_ptr<std::atomic<SDL_bool>> running;
+    int tailleFenetre;
+    SDL_Event event;
+    SDL_bool continuer = SDL_TRUE;
 
-        std::shared_ptr<std::atomic<SDL_bool>> running;
-        int tailleFenetre;
-        SDL_Event event;
-        SDL_bool continuer=SDL_TRUE;
+    SDL_Scancode scancode;
+    SDL_Keycode sym;
+    Uint16 mod;
+    TaskQueue *taskQueue;
+    int **tableauTot;
 
-        SDL_Scancode scancode;
-        SDL_Keycode sym;
-        Uint16 mod;        
-        TaskQueue *taskQueue ;        
-        int ** tableauTot;
-    public:
-        
-        ControlManager(std::shared_ptr<std::atomic<SDL_bool>>  runningRef);
-        int start(TaskQueue  *taskQueueInit);
-        int getControl();    
-        // static void* GetControlWrapper(void* object);
-
+  public:
+    ControlManager(std::shared_ptr<std::atomic<SDL_bool>> runningRef);
+    int start(TaskQueue *taskQueueInit);
+    int getControl();
+    // static void* GetControlWrapper(void* object);
 };
-
-
-
-
